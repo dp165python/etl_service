@@ -1,6 +1,6 @@
 from csv import DictReader
 
-from ..parsers.base_parser import FileParser, ACTIONS, TYPES
+from app.parsers.base_parser import FileParser, ACTIONS, TYPES
 
 
 def create_chunk(upload_file, parser_name, chunk_size):
@@ -22,12 +22,12 @@ class FileProcessor:
         self.parser = FileParser(parser_name)
 
     def csv_file(self):
-        offset = self.parser.get("offset")
+        offset = self.parser.parser.get("offset")
         return self.dict_reader_offset(self.file_to_upload, offset)
 
     def process_line(self, line):
         result = dict()
-        for column, value in self.parser.get("columns").items():
+        for column, value in self.parser.parser.get("columns").items():
             result[column] = TYPES.get(value.get('type'))(ACTIONS[value[
                 "action"]](line.get(value.get('col'))))
         return result

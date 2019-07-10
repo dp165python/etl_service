@@ -26,7 +26,7 @@ def process_publish_date(value):
 ACTIONS = {
     'get_currency': process_currency,
     'due_to': process_publish_date,
-    '': lambda x: x
+    None: lambda x: x
     }
 
 TYPES = {
