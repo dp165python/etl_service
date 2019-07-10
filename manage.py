@@ -8,7 +8,8 @@ manager = Manager(app)
 @manager.option('-p', '--port', dest='port', default=5000)
 @manager.option('-h', '--host', dest='host', default='127.0.0.1')
 @manager.option('-d', '--debug', dest='debug', default=False)
-def runserver(host, port, debug):
+def runserver(host=app.config["FLASK_HOST"], port=app.config["FLASK_PORT"],
+              debug=False):
     app.run(host=host, port=port, debug=debug)
 
 
