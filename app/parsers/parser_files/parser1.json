@@ -7,25 +7,35 @@
     "type"
   ],
   "columns": {
-    "address": {
-      "col": "address",
-      "action": "",
+    "field_res1": {
+      "col": "field1",
+      "action": "get_currency",
       "type": "str"
     },
-    "square": {
-      "col": "square",
-      "action": "",
+    "field_res2": {
+      "col": "filed1",
+      "action": "get_integer",
       "type": "decimal"
     },
-    "price": {
-      "col": "price per sq m",
-      "action": "get_currency",
+    "field_res3": {
+      "col": "field1",
+      "action": "get_float",
       "type": "list"
     },
-    "published": {
-      "col": "publish date",
-      "action": "due_to",
-      "type": "dict"
+    "field_res4": {
+      "col": "field2",
+      "action": "get_month",
+      "type": "int"
+    },
+    "filed_res5": {
+      "col": "field2",
+      "action": "get_day",
+      "type": "int"
+    },
+    "filed_res6": {
+      "col": "field2",
+      "action": "get_year",
+      "type": "int"
     }
   }
 }

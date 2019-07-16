@@ -5,11 +5,10 @@ from app.app import app
 manager = Manager(app)
 
 
-@manager.option('-p', '--port', dest='port', default=5000)
-@manager.option('-h', '--host', dest='host', default='127.0.0.1')
+@manager.option('-p', '--port', dest='port', default=app.config["FLASK_PORT"])
+@manager.option('-h', '--host', dest='host', default=app.config["FLASK_HOST"])
 @manager.option('-d', '--debug', dest='debug', default=False)
-def runserver(host=app.config["FLASK_HOST"], port=app.config["FLASK_PORT"],
-              debug=False):
+def runserver(host, port, debug):
     app.run(host=host, port=port, debug=debug)
 
 

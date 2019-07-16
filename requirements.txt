@@ -5,3 +5,4 @@ Flask-Uploads==0.2.1
 marshmallow
 requests==2.22.0
 Celery
+xmltodict

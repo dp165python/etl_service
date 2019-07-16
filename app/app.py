@@ -12,7 +12,7 @@ def create_app():
     app_init = Flask(__name__)
     app_init.config.from_object(FlaskConfig)
     configure_uploads(app_init, (CSV_UPLOADER,))
-    app_init.wsgi_app = LoginRequiredMiddleware(app_init.wsgi_app, app_init)
+    # app_init.wsgi_app = LoginRequiredMiddleware(app_init.wsgi_app, app_init)
     return app_init
 
 

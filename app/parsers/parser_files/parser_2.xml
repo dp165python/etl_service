@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <columns>
+      <field_res1>
+         <action>get_currency</action>
+         <col>field1</col>
+         <type>str</type>
+      </field_res1>
+      <field_res2>
+         <action>get_integer</action>
+         <col>filed2</col>
+         <type>decimal</type>
+      </field_res2>
+      <field_res3>
+         <action>get_float</action>
+         <col>field3</col>
+         <type>list</type>
+      </field_res3>
+      <field_res4>
+         <action>get_month</action>
+         <col>field4</col>
+         <type>int</type>
+      </field_res4>
+      <filed_res5>
+         <action>get_day</action>
+         <col>field4</col>
+         <type>int</type>
+      </filed_res5>
+      <filed_res6>
+         <action>get_year</action>
+         <col>field4</col>
+         <type>int</type>
+      </filed_res6>
+   </columns>
+   <field>
+      <columns>action</columns>
+      <columns>format</columns>
+      <columns>type</columns>
+   </field>
+   <name>parsers</name>
+   <offset>40</offset>
+</root>
