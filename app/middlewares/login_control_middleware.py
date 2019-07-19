@@ -2,8 +2,6 @@ import requests
 from flask import abort
 from werkzeug.wrappers import Request
 
-LOGGED_IN = 'logged in'
-
 
 class LoginRequiredMiddleware:
 

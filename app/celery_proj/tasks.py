@@ -1,5 +1,5 @@
-from flask import jsonify
 import requests
+from flask import jsonify
 
 from app.celery_proj.celery import celery
 from app.controllers.file_processor_controller import create_chunk

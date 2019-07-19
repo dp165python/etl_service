@@ -1,12 +1,9 @@
-from flask import jsonify, request, abort, g
+from flask import request, abort
 from flask_restful import Resource
-from flask_uploads import UploadSet
 
 from app.celery_proj.tasks import transfer_data
 from app.schemes.upload_scheme import CsvFileUploadSchema
-
-CSV_UPLOADER = UploadSet('CsvUploader')
-CHUNK_SIZE = 50
+from app.constants import CSV_UPLOADER, CHUNK_SIZE
 
 
 class UploadCsv(Resource):

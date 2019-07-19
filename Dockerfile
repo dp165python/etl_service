@@ -17,4 +17,3 @@ RUN apk --no-cache add libpq
 WORKDIR /app
 
 CMD ["celery", "-A app.celery_proj.celery", "-E", "--loglevel=INFO"]
-CMD ["python", "manage.py", "runserver", "-p", "5050"]

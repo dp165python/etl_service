@@ -4,7 +4,8 @@ from io import BytesIO
 
 from flask import url_for
 
-from app.config import create_app, BASE_DIR
+from app.app import create_app
+from app.config import BASE_DIR
 
 fixture_csv = os.path.join(BASE_DIR, 'fixtures/dataJun-16-2019.csv')
 

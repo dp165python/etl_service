@@ -1,7 +1,7 @@
 from csv import DictReader
 
+from app.parsers.base_parser import JsonFileParser
 from app.parsers.parser_utils import ACTIONS, TYPES
-from app.parsers.base_parser import XmlFileParser, JsonFileParser
 
 
 def create_chunk(upload_file, parser_name, chunk_size):

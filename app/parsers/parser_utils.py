@@ -1,14 +1,5 @@
-import os
 import re
 from datetime import datetime as dt
-
-DIR = os.path.abspath(os.path.dirname(__file__))
-
-CURRENCY = {
-    '₴': 'UAH',
-    '$': 'USD',
-    '€': 'EUR'
-    }
 
 
 def process_currency(value):
@@ -57,11 +48,11 @@ ACTIONS = {
     'get_integers': get_integers,
     'get_float': get_float,
     None: lambda x: x
-    }
+}
 
 TYPES = {
     'decimal': lambda x: float(x),
     'int': lambda x: int(x),
     'str': lambda x: str(x),
     'bool': lambda x: bool(x)
-    }
+}

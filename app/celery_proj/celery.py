@@ -1,7 +1,9 @@
 from celery import Celery
 
+from app.constants import BROKER, BACKEND
+
 celery = Celery('app.celery_proj.celery',
-                broker='pyamqp://guest:guest@192.168.99.102:32793',
-                backend='amqp://guest:guest@192.168.99.102:32793')
+                broker=BROKER,
+                backend=BACKEND)
 
 celery.autodiscover_tasks(['app.celery_proj.tasks'])

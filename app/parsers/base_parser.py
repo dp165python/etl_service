@@ -1,10 +1,11 @@
 import json
 import os
 from abc import ABC, abstractmethod
-
-from app.parsers.parser_utils import DIR
 from contextlib import AbstractContextManager
+
 import xmltodict as xd
+
+from app.constants import DIR
 
 
 class ParserFileContext(AbstractContextManager):
