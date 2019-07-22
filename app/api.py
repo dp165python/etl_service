@@ -28,7 +28,7 @@ class Encoder(json.JSONEncoder):
 
 
 def output_json(data, code, headers=None):
-    headers = headers or request.headers
+    headers = headers or {}
     output_data = {
         "response_datetime": str(datetime.datetime.utcnow().isoformat()),
         "status": "failure" if code >= 400 else "success",

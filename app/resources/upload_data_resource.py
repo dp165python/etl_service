@@ -1,12 +1,12 @@
 from flask import request, abort
-from flask_restful import Resource
 
 from app.celery_proj.tasks import transfer_data
-from app.schemes.upload_scheme import CsvFileUploadSchema
 from app.constants import CSV_UPLOADER, CHUNK_SIZE
+from app.resources.base_resource import BaseResource
+from app.schemes.upload_scheme import CsvFileUploadSchema
 
 
-class UploadCsv(Resource):
+class UploadCsv(BaseResource):
     project_serice_url = "http://projects_service:6000/projects/{uuid}"
 
     def post(self):

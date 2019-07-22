@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask import Flask
-from flask_restful import Api
+from app.api import Api
 from flask_uploads import configure_uploads
 
 from app.config import FlaskConfig
@@ -22,3 +22,4 @@ api_1_0 = Api(api_1_0_blueprint)
 
 api_1_0.add_resource(UploadCsv, '/upload_data_file', endpoint='upload_file')
 app.register_blueprint(api_1_0_blueprint, url_prefix='/api')
+
