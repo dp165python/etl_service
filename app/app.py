@@ -1,10 +1,9 @@
 from flask import Blueprint
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restful import Api
 from flask_uploads import configure_uploads
 
 from app.config import FlaskConfig
-from app.middlewares.login_control_middleware import LoginRequiredMiddleware
 from app.resources.upload_data_resource import CSV_UPLOADER, UploadCsv
 
 
