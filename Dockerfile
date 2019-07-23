@@ -12,8 +12,10 @@ FROM base
 
 RUN pip install setuptools
 COPY --from=builder /install /usr/local
-COPY . /app
+COPY . /service
 RUN apk --no-cache add libpq
-WORKDIR /app
+WORKDIR /service
 
-CMD ["celery", "-A app.celery_proj.celery", "-E", "--loglevel=INFO"]
+ENV BROKER="etl_rabbit"
+
+CMD ["celery", "worker", "-A", "app.celery_proj.celery", "-E", "--loglevel=INFO"]

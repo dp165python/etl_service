@@ -4,8 +4,7 @@ import json
 import uuid
 
 import flask_restful
-
-from flask import request, Response
+from flask import Response
 
 
 class Api(flask_restful.Api):
@@ -13,7 +12,7 @@ class Api(flask_restful.Api):
         super(Api, self).__init__(*args, **kwargs)
         self.representations = {
             'application/json': output_json
-            }
+        }
 
 
 class Encoder(json.JSONEncoder):
@@ -33,7 +32,7 @@ def output_json(data, code, headers=None):
         "response_datetime": str(datetime.datetime.utcnow().isoformat()),
         "status": "failure" if code >= 400 else "success",
         "message" if isinstance(data, str) else "data": data
-        }
+    }
     output_data = json.dumps(output_data, cls=Encoder)
 
     return Response(output_data, code, headers=headers,

@@ -6,3 +6,4 @@ marshmallow
 requests==2.22.0
 Celery
 xmltodict
+pytest
