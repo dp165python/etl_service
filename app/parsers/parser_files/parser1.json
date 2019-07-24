@@ -1,41 +1,36 @@
 {
   "name": "parsers",
-  "offset": 40,
+  "offset": 15,
   "field": [
     "action",
     "format",
     "type"
   ],
   "columns": {
-    "field_res1": {
+    "field_1": {
+      "col": "field2",
+      "action": "get_year",
+      "type": "int"
+    },
+    "field_2": {
       "col": "field1",
-      "action": "get_currency",
-      "type": "str"
-    },
-    "field_res2": {
-      "col": "filed1",
       "action": "get_integer",
-      "type": "decimal"
+      "type": "int"
     },
-    "field_res3": {
+    "field_3": {
       "col": "field1",
       "action": "get_float",
-      "type": "list"
+      "type": "decimal"
     },
-    "field_res4": {
+    "field_4": {
       "col": "field2",
       "action": "get_month",
       "type": "int"
     },
-    "filed_res5": {
-      "col": "field2",
-      "action": "get_day",
-      "type": "int"
-    },
-    "filed_res6": {
-      "col": "field2",
-      "action": "get_year",
-      "type": "int"
+    "field_5": {
+      "col": "field1",
+      "action": "get_currency",
+      "type": "str"
     }
   }
 }

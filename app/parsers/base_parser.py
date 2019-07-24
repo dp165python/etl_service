@@ -46,14 +46,3 @@ class JsonFileParser(BaseParser):
     def parse(self):
         with ParserFileContext(DIR, self.parser_name, 'json') as parser_file:
             return json.load(parser_file)
-
-
-class XmlFileParser(BaseParser):
-
-    def __init__(self, parser_name):
-        super(BaseParser, self).__init__(self, parser_name)
-
-    def parse(self):
-        with ParserFileContext(DIR, self.parser_name, 'xml') as parser_file:
-            parsed = xd.parse(parser_file)
-            return parsed.get("root")
