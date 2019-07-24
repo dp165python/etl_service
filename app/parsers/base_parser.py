@@ -15,11 +15,11 @@ class ParserFileContext(AbstractContextManager):
         self.parser_name = parser_name
         self.location = location_dir
         self.extension = extension
-        super(AbstractContextManager, self).__init__()
+        AbstractContextManager.__init__(self)
 
     def __enter__(self):
         self.parser_file = open(os.path.normpath(os.path.join(self.location,
-            "parser_file/{parser_name}.{extension}".format(
+            "parser_files/{parser_name}.{extension}".format(
                 parser_name=self.parser_name,
                 extension=self.extension))), 'r')
         return self.parser_file
@@ -32,7 +32,7 @@ class ParserFileContext(AbstractContextManager):
 class BaseParser(ABC):
     def __init__(self, parser_name):
         self.parser_name = parser_name
-        super(ABC).__init__(self)
+        ABC.__init__(self)
 
     @abstractmethod
     def parse(self):
@@ -41,7 +41,7 @@ class BaseParser(ABC):
 
 class JsonFileParser(BaseParser):
     def __init__(self, parser_name):
-        super(BaseParser, self).__init__(self, parser_name)
+        BaseParser.__init__(self, parser_name)
 
     def parse(self):
         with ParserFileContext(DIR, self.parser_name, 'json') as parser_file:

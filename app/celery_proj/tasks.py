@@ -1,5 +1,5 @@
 import requests
-from flask import jsonify
+import json
 
 from app.celery_proj.celery import celery
 from app.controllers.file_processor_controller import create_chunk
@@ -26,5 +26,5 @@ def send_chunks(url_to_send, chunk_size, upload_file, parser_name):
 
 
 def send_chunk(url_to_send, chunk):
-    data_chunk = jsonify(chunk)
+    data_chunk = json.dumps(chunk)
     return requests.post(url_to_send, {'data': data_chunk})
