@@ -4,5 +4,5 @@ from app.controllers.authentication_controller import authentication
 
 
 class BaseResource(Resource):
-    # method_decorators = [authentication]
+    method_decorators = [authentication]
     pass
