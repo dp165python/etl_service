@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask import Flask
+from flask import Flask, abort
 from flask_uploads import configure_uploads
 
 from app.api import Api

@@ -6,22 +6,22 @@ from app.controllers.file_processor_controller import create_chunk
 
 
 @celery.task
-def transfer_data(url_to_send, chnk_size, upload_file, parser_name):
-    send_status(url_to_send, status='started')
-    data = list(send_chunks(url_to_send, chnk_size, upload_file, parser_name))
-    send_status(url_to_send, 'uploaded')
+def transfer_data(url_to_send, chnk_size, upload_file, parser_name, project_id):
+    send_status(url_to_send, 'started', project_id)
+    data = list(send_chunks(url_to_send, chnk_size, upload_file, parser_name, project_id))
+    send_status(url_to_send, 'uploaded', project_id)
 
     return data
 
 
-def send_status(url_to_send, status):
+def send_status(url_to_send, status, project_id):
     headers = {'Content-type': 'application/json'}
-    return requests.patch(url_to_send, data=json.dumps({'status': status}), headers=headers)
+    return requests.patch(url_to_send.format(endpoint='status', uuid=project_id), data=json.dumps({'status': status}), headers=headers)
 
 
-def send_chunks(url_to_send, chunk_size, upload_file, parser_name):
+def send_chunks(url_to_send, chunk_size, upload_file, parser_name, project_id):
     for chunk in create_chunk(upload_file, parser_name, chunk_size):
-        yield send_chunk(url_to_send, chunk)
+        yield send_chunk(url_to_send.format(endpoint='data', uuid=project_id), chunk)
 
 
 def send_chunk(url_to_send, chunk):

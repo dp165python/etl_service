@@ -14,6 +14,11 @@ def testing_client():
 
     context.pop()
 
+@pytest.fixture(scope='session')
+def celery_includes():
+    return [
+        'app.celery_proj.tasks'
+    ]
 
 @pytest.fixture(scope='session')
 def celery_config():
